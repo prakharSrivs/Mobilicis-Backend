@@ -103,7 +103,7 @@ app.get('/assignment/5',async(req,res)=>{
 //To access all the data
 app.get('/getAllData',async(req,res)=>{ 
     let allUsers= await User.find()
-    res.json(allUsers)
+    res.send(allUsers)
 })
 //To catch all the rest routes
 app.get("*",(req,res)=>{
