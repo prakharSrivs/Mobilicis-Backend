@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
-
+const cors = require('cors')
 const express=require("express")
 const mongoose = require("mongoose")
 const app= express()
@@ -9,6 +9,9 @@ const fs = require("fs")
 let sampleData=require('./sample_data.json')
 const User = require("./schemas/User")
 
+
+
+app.use(cors())
 
 //Initializing Database URL 
 const dbUrl=process.env.DB_URL ||  "mongodb://localhost:27017/assignment";;
