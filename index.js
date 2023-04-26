@@ -101,7 +101,7 @@ app.get('/assignment/5',async(req,res)=>{
 })
 
 //To access all the data
-app.get('/getAllData',async(req,res)=>{ 
+app.get('/assignment/0',async(req,res)=>{ 
     let allUsers= await User.find()
     res.send(allUsers)
 })
