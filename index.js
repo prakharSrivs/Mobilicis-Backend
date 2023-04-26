@@ -14,7 +14,7 @@ const User = require("./schemas/User")
 app.use(cors())
 
 //Initializing Database URL 
-const dbUrl=process.env.DB_URL ||  "mongodb://localhost:27017/assignment";;
+const dbUrl=process.env.DB_URL;
 
 //Connecting to the database
 mongoose.connect(dbUrl,{
