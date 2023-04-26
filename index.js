@@ -95,11 +95,13 @@ app.get('/assignment/5',async(req,res)=>{
 
 //To access all the data
 app.get('/getAllData',async(req,res)=>{ 
-    let allUsers= await User.find().then(()=> console.log("Data Fetched")).catch((e)=>console.log("Failed to fetch Data"))
+    let allUsers= await User.find()
     res.json(allUsers)
 })
-
-
+//To catch all the rest routes
+app.get("*",(req,res)=>{
+    res.send("404 error")
+})
 
 
 app.listen("3000",()=>{
