@@ -1,6 +1,8 @@
 # Backend Routes for Internship Assignment
 This repository contains the solution to an assignment problem given as a part of the internship program. The backend of the solution is developed using Node.js and MongoDB, and provides the following routes:
 
+# API Endpoints 
+
 # /assignment/0
 This route is used to fetch all the data available in the MongoDB database.
 
