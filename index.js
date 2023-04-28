@@ -111,8 +111,9 @@ app.get('/assignment/0',async(req,res)=>{
     res.send(allUsers)
 })
 app.get('/deleteAll/:password',async(req,res)=>{
-    if(req.params.password===process.env.DATA_PW)
+    if(req.params.password==process.env.DATA_PW)
     {
+        console.log()
         let users = await User.deleteMany()
         res.send("Deleted All data")
     }
