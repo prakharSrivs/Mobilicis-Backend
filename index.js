@@ -31,14 +31,19 @@ console.log('Database Connected Successfully')
 
 
 //To Upload Data to the Database
-app.get('/uploadData',async (req,res)=>{
-    for(let i=0;i<sampleData.length;i++)
+app.get('/uploadData/:pw',async (req,res)=>{
+    if(req.params.pw==process.env.DATA_PW)
     {
-        const user = new User(sampleData[i])
-        await user.save()
-        console.log(user)
+        for(let i=0;i<sampleData.length;i++)
+        {
+            const user = new User(sampleData[i])
+            await user.save()
+            console.log(user)
+        }
+        res.send("Data Saved")
     }
-    res.sendStatus(200)
+    else
+    res.send("Wrong Password")
 })
 
 
@@ -105,8 +110,19 @@ app.get('/assignment/0',async(req,res)=>{
     let allUsers= await User.find()
     res.send(allUsers)
 })
+app.get('/deleteAll/:password',async(req,res)=>{
+    if(req.params.password===process.env.DATA_PW)
+    {
+        let users = await User.deleteMany()
+        res.send("Deleted All data")
+    }
+    else
+    res.send("Wrong Password")
+
+})
 //To catch all the rest routes
 app.get("*",(req,res)=>{
+    console.log(process.env.DATA_PW+"HI")
     res.send("404 error")
 })
 
